@@ -5,7 +5,7 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-echo "CHECKPOINT: After uses/requires for PHPMailer<br>"; //For debugging
+//echo "CHECKPOINT: After uses/requires for PHPMailer<br>"; //For debugging
 
 //PHP requires !empty it seems to populate POST variables. So have at it.
 if(!empty($_POST['subject'])){
@@ -16,7 +16,7 @@ $message = $_POST['message'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 
-echo "CHECKPOINT: Before PHPMailer config/After declaration of POST variables<br>";//For debugging
+//echo "CHECKPOINT: Before PHPMailer config/After declaration of POST variables<br>";//For debugging
 
 $mail = new PHPMailer();
 $mail->isSMTP();
@@ -42,7 +42,7 @@ $mail->Body = "Puhelinnumero:<br>
 //$mail->AltBody = $phone;
 $mail->AddAddress('jmikkola13@gmail.com'); //TO whom you are sending TO 
 
-echo "CHECKPOINT: Before Sending Mail<br>";//For debugging
+//echo "CHECKPOINT: Before Sending Mail<br>";//For debugging
 //echo $phone;
 
 //SENDING THE MAIL
@@ -54,14 +54,14 @@ if(!$mail->Send())
    exit;
 }
 
-echo "Message has been sent<br>";//For debugging
+//echo "Message has been sent<br>";//For debugging
 echo "<b><h4>Kiitos viestistäsi, palaamme asiaan mahdollisimman pian!</h4></b>";
 } else {
 echo "<br>";
 echo "vardump for POST:<br>";//For debugging
 echo var_dump($_POST);//For debugging
 echo "<br>";
-echo "<b>POST variables not found it seems. For fucks sake.</b>";//For debugging
+echo "<b>POST variables not found it seems. For fucks sake. Something is seriously wrong, try again</b>";//For debugging
 
 }
 ?>
