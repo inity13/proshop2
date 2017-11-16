@@ -5,7 +5,7 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-echo "CHECKPOINT: After uses/requires for PHPMailer<br>"; //For debugging
+//echo "CHECKPOINT: After uses/requires for PHPMailer<br>"; //For debugging
 
 //PHP requires !empty it seems to populate POST variables. So have at it.
 if(!empty($_POST['subject'])){
@@ -16,7 +16,7 @@ $message = $_POST['message'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 $company = $_POST['company'];
-echo "CHECKPOINT: Before PHPMailer config/After declaration of POST variables<br>";//For debugging
+//echo "CHECKPOINT: Before PHPMailer config/After declaration of POST variables<br>";//For debugging
 
 $mail = new PHPMailer();
 $mail->isSMTP();
@@ -49,21 +49,29 @@ $mail->Body = "<h1><b>Yhteydenotto nettisivuilta</b></h1>
 //$mail->AltBody = $phone;
 $mail->AddAddress('jmikkola13@gmail.com'); //TO whom you are sending TO 
 
-echo "CHECKPOINT: Before Sending Mail<br>";//For debugging
+//echo "CHECKPOINT: Before Sending Mail<br>";//For debugging
 //echo $phone;
 
 //SENDING THE MAIL
 if(!$mail->Send())
 {
-   echo "Message could not be sent. 
+   echo "Viestiä <b>ei</b> voitu lähettää. 
 ";
    echo "Mailer Error: " . $mail->ErrorInfo;
    exit;
 }
 
-echo "Message has been sent<br>";//For debugging
-echo "<b><h4>Kiitos viestistäsi, palaamme asiaan mahdollisimman pian!</h4></b>";
-echo $company; //For debugging
+//echo "Message has been sent<br>";//For debugging
+echo "<html>"; //Unnecessary probably, but hey, still here.
+echo "<body>";
+echo "<head>";
+echo "<b><h4>Kiitos viestistäsi {$company}, palaamme asiaan mahdollisimman pian!</h4></b>"; //Thank you for the email
+echo "<a href=\"javascript:history.go(-1)\">Takaisin sivuille!</a>";//Link to previous page 
+echo "</head>";
+echo "</body>";
+echo "</html>";
+
+//echo $company; //For debugging
 } else {
 echo "<br>";
 echo "vardump for POST:<br>";//For debugging
