@@ -5,7 +5,7 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-//echo "CHECKPOINT: After uses/requires for PHPMailer<br>"; //For debugging
+echo "CHECKPOINT: After uses/requires for PHPMailer<br>"; //For debugging
 
 //PHP requires !empty it seems to populate POST variables. So have at it.
 if(!empty($_POST['subject'])){
@@ -15,8 +15,8 @@ $subject = $_POST['subject'];
 $message = $_POST['message'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
-
-//echo "CHECKPOINT: Before PHPMailer config/After declaration of POST variables<br>";//For debugging
+$company = $_POST['company'];
+echo "CHECKPOINT: Before PHPMailer config/After declaration of POST variables<br>";//For debugging
 
 $mail = new PHPMailer();
 $mail->isSMTP();
@@ -32,17 +32,24 @@ $mail->Username = 'proshopnoreply@gmail.com';
 $mail->Password = 'ProShop123'; //CHANGE PASS!
 $mail->SetFrom('no-reply@gmail.com'); //Has to be defined, but does not really do anything, the FROM is actually from the Username parameter
 $mail->Subject = $subject; //EMAIL SUBJECT
-$mail->Body = "Puhelinnumero:<br>
+$mail->Body = "<h1><b>Yhteydenotto nettisivuilta</b></h1>
+				<br>
+				<h2><b>Asiakkaan tiedot:</b></h2><br>
+				<b>Puhelinnumero:</b><br>
 			   {$phone}<br>
-			   Email:<br>
-			   {$email}<br><br>
-			   Viesti:<br>
-			   {$message}<br>
-			   "; //Concatonates phone/email/subject into email body
+			   <b>Email:</b><br>
+			   {$email}<br>
+			   <b>Yhtiö/Nimi:</b><br>
+			   {$company}<br>
+			   <h2><b>Viesti:<br>
+			   {$subject}
+			   </b></h2>
+			   {$message}
+			   "; //Concatonates phone/email/subject/company etc. into email body and formats nicely
 //$mail->AltBody = $phone;
 $mail->AddAddress('jmikkola13@gmail.com'); //TO whom you are sending TO 
 
-//echo "CHECKPOINT: Before Sending Mail<br>";//For debugging
+echo "CHECKPOINT: Before Sending Mail<br>";//For debugging
 //echo $phone;
 
 //SENDING THE MAIL
@@ -54,8 +61,9 @@ if(!$mail->Send())
    exit;
 }
 
-//echo "Message has been sent<br>";//For debugging
+echo "Message has been sent<br>";//For debugging
 echo "<b><h4>Kiitos viestistäsi, palaamme asiaan mahdollisimman pian!</h4></b>";
+echo $company; //For debugging
 } else {
 echo "<br>";
 echo "vardump for POST:<br>";//For debugging
