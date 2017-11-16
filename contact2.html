@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 
   <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="Rakennusteollisuuden tukkukauppa" content="Rakennusteollisuuden tarvikkeita pääkaupunkiseudulla, korkein luottoluokitus">
+    <meta name="inity" content="Paslode, Spit, Duo-Fast, Adjufix, Haubold… Ammattilaisten ratkaisut niin puu, betoni- ja teräskiinnittämiseen kuin karminasennukseen.">
 
     <title>Suomen ProShop</title>
 
@@ -59,7 +59,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container slideInLeft animated">
 
       <div class="bg-faded p-4 my-4">
         <hr class="divider">
@@ -94,7 +94,7 @@
         </div>
       </div>
 
-<div class="bg-faded p-4 my-4">
+<div class="bg-faded p-4 my-4 slideInLeft animated">
 <h2 class="text-center text-lg text-uppercase my-0">Jätä
           <strong>Yhteydenottopyyntö</strong>
         </h2>
@@ -134,6 +134,19 @@
         <p class="m-0">Copyright &copy; Suomen ProShop 2017<br><a href="https://www.facebook.com/SuomenProShop/" class="fa fa-facebook"></a></p>
       </div>
     </footer>
+
+     <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Zoom when clicked function for Google Map -->
+    <script>
+      $('.map-container').click(function () {
+        $(this).find('iframe').addClass('clicked')
+      }).mouseleave(function () {
+        $(this).find('iframe').removeClass('clicked')
+      });
+    </script>
 
 </body>
 
